@@ -12,11 +12,14 @@ cap.set(4, hCam)
 
 folderPath = "/home/user34/Desktop/gestureVolumeControl/images"
 myList = os.listdir(folderPath)
+sorted_files = sorted(myList, key=lambda x: int(x.split('.')[0]))
+
 overlayList = []
-for imPath in myList:
+for imPath in sorted_files:
     image = cv2.imread(f'{folderPath}/{imPath}')
     overlayList.append(image)
-    
+    print(imPath)
+
 
 
 detector = htm.HandDetector()
